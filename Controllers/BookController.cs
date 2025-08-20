@@ -1,5 +1,6 @@
 ﻿using dotnet_api_example.Models;
 using dotnet_api_example.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace dotnet_api_example.Controllers
@@ -16,6 +17,7 @@ namespace dotnet_api_example.Controllers
         }
 
         [HttpGet]
+        [Authorize]
         public IActionResult GetAll()
         {
             var books = _bookService.GetAll();
